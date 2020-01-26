@@ -1,0 +1,14 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// base style
+@import "../metronic/src/assets/sass/style";
+
+// skins for metronic only
+@import "../metronic/src/assets/sass/global/layout/aside/skins/dark";
+@import "../metronic/src/assets/sass/global/layout/brand/skins/dark";
+@import "../metronic/src/assets/sass/global/layout/header/skins/base/light";
+@import "../metronic/src/assets/sass/global/layout/header/skins/menu/light";
