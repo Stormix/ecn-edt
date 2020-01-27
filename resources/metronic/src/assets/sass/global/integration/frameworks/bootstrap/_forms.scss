@@ -89,10 +89,6 @@
 .input-group {
 	@include kt-icons-size((lineawesome: 1.4rem, fontawesome: 1.2rem, flaticon: 1.2rem));
 
-	.input-group-text {
-		line-height: 0;
-	}
-
 	i {
 		color: $input-group-icon-color;
 		line-height: 0;

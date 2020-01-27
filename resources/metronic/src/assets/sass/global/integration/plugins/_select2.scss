@@ -38,7 +38,7 @@
             font-size: 0.85rem;
             left: auto;
             right: 0;
-            display: inline-block;
+            display: inline-block; 
             width: 1.9rem;
 
             b {
@@ -54,14 +54,14 @@
             .select2-selection__clear {
                 border: 0;
                 position: absolute;
-                top: 50%;
+                top: 50%;                
                 @include kt-la-icon-self('\f110');
                 font-size: 1.4rem;
                 display: inline-block;
                 left: auto;
                 right: $input-btn-padding-x + 0.85rem;
                 margin-right: 0.4rem;
-                margin-top: -(2rem/2);
+                margin-top: -(2rem/2);                
             }
         }
 
@@ -74,7 +74,7 @@
                 font-size: 1rem;
                 margin: 0.1rem 0.4rem 0.1rem 0;
                 position: relative;
-                float: left#{'/*rtl:right*/'};
+                float: left#{'/*rtl:right*/'}; 
 
                 @include kt-not-rounded {
                     border-radius: $input-border-radius !important;
@@ -84,7 +84,7 @@
                     @include kt-la-icon-self('\f110');
                     font-size: 1.4rem;
                     display: inline-block;
-                    line-height: 0;
+                    line-height: 0; 
                     margin-right: 0.3rem;
                     position: relative;
                     top: 0.1rem;
@@ -101,10 +101,10 @@
             outline: none !important;
             @include kt-rounded {
                 border-radius: $input-border-radius;
-            }
+            }   
             @include kt-not-rounded {
                 border-radius: 0 !important;
-            }
+            }         
         }
 
         .select2-search--dropdown {
@@ -113,25 +113,25 @@
 
         // results
         .select2-results__option {
-            padding: 5px 15px;
+            padding: 5px 15px;  
 
             &[aria-disabled=true] {
                 cursor: not-allowed;
             }
-
+        
             .select2-results__group {
                 padding: 5px 15px;
                 font-weight: 600;
             }
 
             .select2-results__option {
-                padding: 5px 30px;
+                padding: 5px 30px; 
             }
         }
     }
 
     .select2-container .select2-search--inline .select2-search__field {
-        margin: 0;
+        margin: 0; 
     }
 
     // Select2 component
@@ -165,7 +165,7 @@
                 }
             }
 
-            // the most right
+            // the most right 
             &:not(:first-child) + .select2-container:last-child {
                 > .selection {
                     .select2-selection--single {
@@ -185,7 +185,7 @@
 
             &:first-child + .select2-container + .input-group-text,
             &:not(:first-child) + .select2-container + .input-group-text {
-                border-left: 0;
+                border-left: 0;    
             }
 
             &:not(:first-child) + .select2-container:not(:last-child) {
@@ -215,14 +215,14 @@
     .select2-container--default {
         .select2-selection--multiple,
         .select2-selection--single {
-            border: 1px solid $input-border-color;
+            border: 1px solid $input-border-color; 
 
             .select2-selection__placeholder {
                 color: $input-placeholder-color;
             }
         }
 
-        &.select2-container--focus,
+        &.select2-container--focus, 
         &.select2-container--open {
             .select2-selection--multiple,
             .select2-selection--single {
@@ -251,20 +251,20 @@
                 }
             }
 
-            .select2-search__field {
+            .select2-search__field {                
                 @include kt-input-placeholder($input-placeholder-color);
             }
         }
 
         .select2-search--dropdown .select2-search__field {
-            border: 1px solid $input-border-color;
+            border: 1px solid $input-border-color; 
         }
 
         //.select2-container--below.
 
-        // dropdown
+        // dropdown 
         .select2-dropdown {
-            border: 1px solid $input-border-color;
+            border: 1px solid $input-border-color; 
             box-shadow: $kt-dropdown-shadow;
         }
 
@@ -318,7 +318,7 @@
                     .select2-selection__placeholder {
                         color: $input-placeholder-color;
                     }
-                }
+                }   
             }
         }
     }
@@ -326,14 +326,14 @@
 
 // Component Validation State
 @mixin select2-validation-state($state, $color) {
-    .is-#{$state} {
+    .m-form.m-form--state .is-#{$state} {
         .select2-container--default {
             .select2-selection--multiple,
             .select2-selection--single {
-                border-color: $color;
+                border-color: $color; 
             }
 
-            &.select2-container--focus,
+            &.select2-container--focus, 
             &.select2-container--open {
                 .select2-selection--multiple,
                 .select2-selection--single {
@@ -350,7 +350,7 @@
 
 // Skin
 @include select2-skin();
-
+    
 // Validation States
-@include select2-validation-state(valid, kt-state-color(success, base));
-@include select2-validation-state(invalid, kt-state-color(danger, base));
+@include select2-validation-state(valid, success);
+@include select2-validation-state(invalid, danger);

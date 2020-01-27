@@ -4,10 +4,29 @@
 
 
 
+
 @include kt-desktop {
 	// Content
 	.kt-content {
 		padding: kt-get($kt-page-padding, desktop) 0;
+		padding-right: 0;
+		padding-bottom: 0;
+
+		// Subheader enabled
+		.kt-subheader--enabled.kt-subheader--transparent:not(.kt-subheader--fixed) & {
+			padding-top: 0;
+		}
+
+		// Fixed footer
+		.kt-footer--fixed & {
+			padding-bottom: kt-get($kt-footer-config, self, fixed, height);
+		}
+
+		.kt-container.kt-container--fluid {
+			.kt-aside--enabled & {
+				padding-left: kt-get($kt-page-padding, desktop);
+			}
+		}
 
 		// Content fit
 		&.kt-content--fit-top {
@@ -17,18 +36,12 @@
 		&.kt-content--fit-bottom {
 			padding-bottom: 0;
 		}
-
-		// Footer fixed
-		.kt-footer--fixed & {
-			padding-bottom: kt-get($kt-footer-config, self, fixed, height);
-		}
 	}
 }
 
 @include kt-tablet-and-mobile {
-	// Content
 	.kt-content {
-		padding: kt-get($kt-page-padding, mobile) 0;
+		padding: kt-get($kt-page-padding, mobile)  0;
 
 		// Content fit
 		&.kt-content--fit-top {

@@ -12,7 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .js('resources/js/login.js', 'public/js')
+    .js('resources/metronic/src/assets/js/pages/dashboard.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/metronic/src/assets/sass/pages/login/login-1.scss', 'public/css');
 
 // copy images folder into laravel public folder
 mix.copyDirectory('resources/metronic/src/assets/media', 'public/assets/media');
@@ -30,3 +33,13 @@ mix.webpackConfig({
        },
    },
 });
+
+mix.browserSync({
+    proxy: 'ecn-edt.local',
+    host: 'ecn-edt.local'
+  })
+
+if (mix.inProduction()) {
+  mix.version()
+     .sourceMaps()
+}

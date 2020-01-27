@@ -367,7 +367,6 @@ const mainConfig = function () {
         // webpack dev server config
         devServer: {
             contentBase: distPath,
-            watchContentBase: true,
             compress: true,
             port: 3000
         }
