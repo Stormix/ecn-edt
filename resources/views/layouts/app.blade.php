@@ -65,7 +65,7 @@
                                     <a href="index.html">
                                         <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
                                             class="kt-header__brand-logo-default" />
-                                        <img alt="Logo" src="assets/media/logos/logo-2-sm.png"
+                                        <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
                                             class="kt-header__brand-logo-sticky" />
                                     </a>
                                 </div>
@@ -189,11 +189,13 @@
                                     <div class="kt-footer__logo">
                                         <div class="kt-footer__copyright">
                                             2020&nbsp;&nbsp;&copy;
-                                        </div>
+
                                         <a href="https://anasmazouni.dev" target="_blank">
                                             <img alt="Logo" src="https://stormix.co/assets/img/logo/logo.svg"
                                                 height="15px">
                                         </a>
+                                        . All product names, trademarks and registered trademarks are property of their respective owners.
+                                        </div>
                                     </div>
                                     <div class="kt-footer__menu">
                                         <a href="https://anasmazouni.dev" target="_blank">Contact</a>

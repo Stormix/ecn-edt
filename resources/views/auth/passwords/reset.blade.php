@@ -31,13 +31,14 @@
                 </div>
                 <div class="kt-grid__item">
                     <div class="kt-login__info">
-                        <div class="kt-login__copyright">
-                            &copy {{ date('Y') }} Stormix
-                        </div>
-                        <div class="kt-login__menu">
-                            <a href="#" class="kt-link">Privacy</a>
-                            <a href="#" class="kt-link">Legal</a>
-                            <a href="#" class="kt-link">Contact</a>
+                        <div class="kt-footer__copyright text-white" >
+                            2020&nbsp;&nbsp;&copy;
+
+                        <a href="https://anasmazouni.dev" target="_blank">
+                            <img alt="Logo" src="https://stormix.co/assets/img/logo/logo.svg"
+                                height="15px">
+                        </a>
+                        . All product names, trademarks and registered trademarks are property of their respective owners.
                         </div>
                     </div>
                 </div>
