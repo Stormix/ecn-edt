@@ -70,6 +70,9 @@ export default {
         case "executing":
           return "Processing";
           break;
+        case "failed":
+          return "Failed";
+          break;
         case "finished":
           return "Finished";
           break;

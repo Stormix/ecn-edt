@@ -37,6 +37,8 @@
     <div class="col-lg-6">
 
       <!--begin::Portlet-->
+      <form class="kt-form" action="/store" method="POST">
+
       <div class="kt-portlet">
         <div class="kt-portlet__head">
           <div class="kt-portlet__head-label">
@@ -80,7 +82,6 @@
           @endif
 
           <!--begin::Form-->
-          <form class="kt-form" action="/store" method="POST">
             @csrf
             @php
             $onboard = Auth::user()->account;
@@ -119,8 +120,8 @@
             <button type="reset" class="btn btn-secondary">Cancel</button>
           </div>
         </div>
-        </form>
       </div>
+    </form>
 
       <!--end::Portlet-->
 
