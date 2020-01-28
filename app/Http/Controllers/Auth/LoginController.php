@@ -72,6 +72,7 @@ class LoginController extends Controller
             $existingUser->google_id       = $user->id;
             $existingUser->avatar          = $user->avatar;
             $existingUser->avatar_original = $user->avatar_original;
+            $existingUser->token = $user->token;
             $existingUser->save();
             auth()->login($existingUser, true);
         } else {
@@ -82,10 +83,10 @@ class LoginController extends Controller
             $newUser->google_id       = $user->id;
             $newUser->avatar          = $user->avatar;
             $newUser->avatar_original = $user->avatar_original;
+            $newUser->token = $user->token;
             $newUser->save();
             auth()->login($newUser, true);
         }
         return redirect()->to('/home');
-        // $user->token;
     }
 }

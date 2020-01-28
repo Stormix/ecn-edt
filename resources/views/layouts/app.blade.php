@@ -26,8 +26,7 @@
 
 <!-- begin::Body -->
 
-<body
-    class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-topbar kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
+<body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-topbar kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
 
     <!-- begin::Page loader -->
 
@@ -38,7 +37,7 @@
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
-            <a href="index.html">
+            <a href="/home">
                 <img alt="Logo" src="assets/media/logos/logo-2-sm.png" />
             </a>
         </div>
@@ -62,7 +61,7 @@
                             <!-- begin:: Brand -->
                             <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
                                 <div class="kt-header__brand-logo">
-                                    <a href="index.html">
+                                    <a href="/home">
                                         <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
                                             class="kt-header__brand-logo-default" />
                                         <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
@@ -175,9 +174,9 @@
                         </div>
 
                         <!-- end:: Content Head -->
-
+                        <div  id="app" >
                         @yield('content')
-
+                        </div>
 
                     </div>
 

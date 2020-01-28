@@ -11,6 +11,9 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
+        "google/apiclient": "^2.4",
+        "imtigger/laravel-job-status": "^0.2.2",
+        "imtigger/laravel-job-status-progress-view": "^0.2.1",
         "laravel/framework": "^6.2",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0"

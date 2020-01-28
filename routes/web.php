@@ -20,3 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::post('/store', 'ExtractorController@store');
+Route::get('/calendar', 'ExtractorController@calendar');
+Route::get('/jobs/add', 'ExtractorController@add');
+Route::get('/jobs/{id}/progress', 'ExtractorController@status');
+
+// \Imtigger\LaravelJobStatus\ProgressController::routes();
+

@@ -13,3 +13,5 @@ yarn-error.log
 resources/metronic/src/*
 !resources/metronic/src/assets/
 public/assets/media/*
+public/js/*
+public/css/*

@@ -33,6 +33,14 @@ return [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_CALLBACK_URL'),
+        // The URL that listens to Google webhook notifications (Part 3).
+        'webhook_uri' => env('GOOGLE_WEBHOOK_URI'),
+        // Enables automatic token refresh.
+        'approval_prompt' => 'force',
+        'access_type' => 'offline',
+
+        // Enables incremental scopes (useful if in the future we need access to another type of data).
+        'include_granted_scopes' => true,
     ],
     // 'github' => [
     //     'client_id' => env('GITHUB_CLIENT_ID'),
