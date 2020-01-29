@@ -38,7 +38,7 @@
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
             <a href="/home">
-                <img alt="Logo" src="assets/media/logos/logo-2-sm.png" />
+                <img alt="Logo" src="assets/media/logos/LogoCN_Icon.png" height="32px" />
             </a>
         </div>
         <div class="kt-header-mobile__toolbar">
@@ -62,9 +62,9 @@
                             <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
                                 <div class="kt-header__brand-logo">
                                     <a href="/home">
-                                        <img alt="Logo" src="assets/media/logos/logoCN_Icon.png" height="48px"
+                                        <img alt="Logo" src="assets/media/logos/LogoCN_Icon.png" height="48px"
                                             class="kt-header__brand-logo-default" />
-                                        <img alt="Logo" src="assets/media/logos/logoCN_Icon.png" height="48px"
+                                        <img alt="Logo" src="assets/media/logos/LogoCN_Icon.png" height="48px"
                                             class="kt-header__brand-logo-sticky" />
                                     </a>
                                 </div>
