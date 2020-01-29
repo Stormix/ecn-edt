@@ -12,6 +12,6 @@ class OnBoardAccount extends Model
      * @var string
      */
     protected $table = 'accounts';
-    protected $fillable  = ['username', 'password'];
+    protected $fillable  = ['name', 'username', 'password'];
 
 }

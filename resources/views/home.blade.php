@@ -102,6 +102,10 @@
             </div>
             @endif
             <div class="form-group">
+              <label>Firstname</label>
+              <input name="name" type="text" required autocomplete="off" class="form-control" aria-describedby="" placeholder="Your firstname" value="{{ $onboard ? $onboard->name : ''}}">
+            </div>
+            <div class="form-group">
               <label>OnBoard Username</label>
               <input name="username" type="text" required autocomplete="off" class="form-control" aria-describedby="" placeholder="OnBoard username" value="{{ $onboard ? $onboard->username : ''}}">
               <span class="form-text text-muted">First name initial + Last name + Registration year (e.g
@@ -200,13 +204,27 @@
                  <progress-component :job_id="{{ Cookie::get('extraction_job') }}"></progress-component>
                 </div>
             </div>
-          @elseif($onboard->status == 2 && Auth::user()->calendar)
-          <div class="row">
-            <div class="col-lg-12">
-                <calendar-info></calendar-info>
+            @elseif($onboard->status == 2 && Auth::user()->calendar)
+            <div class="row">
+              <div class="col-lg-12">
+                  <calendar-info></calendar-info>
+              </div>
             </div>
-          </div>
-          @endif
+            @elseif($onboard->status == 3)
+            <div class="row">
+              <div class="col-lg-12"><div class="alert alert-danger" role="alert">
+                <div class="alert-icon">        <i class="flaticon-exclamation-1"></i>
+                </div>
+                <div class="alert-text">Extraction job failed, try again in a few minutes!</div>
+                <div class="alert-close">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="la la-close"></i></span>
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+            @endif
 
         </div>
       </div>

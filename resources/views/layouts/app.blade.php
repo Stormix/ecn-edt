@@ -62,9 +62,9 @@
                             <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
                                 <div class="kt-header__brand-logo">
                                     <a href="/home">
-                                        <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
+                                        <img alt="Logo" src="assets/media/logos/logoCN_Icon.png" height="48px"
                                             class="kt-header__brand-logo-default" />
-                                        <img alt="Logo" src="assets/media/logos/logoCN_icon.png" height="48px"
+                                        <img alt="Logo" src="assets/media/logos/logoCN_Icon.png" height="48px"
                                             class="kt-header__brand-logo-sticky" />
                                     </a>
                                 </div>

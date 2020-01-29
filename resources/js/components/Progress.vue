@@ -14,7 +14,7 @@
       >{{statusText}}: {{ current}}%</div>
     </div>
 
-    <div class="alert alert-danger" role="alert" v-if="errors.length > 0">
+    <div class="alert alert-danger" role="alert" v-if="errors && errors.length > 0">
       <div class="alert-icon">
         <i class="flaticon-exclamation-1"></i>
       </div>

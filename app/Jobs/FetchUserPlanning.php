@@ -48,30 +48,26 @@ class FetchUserPlanning implements ShouldQueue
             "Content-Type"  => "application/json"
         ];
         $requestBody = [
-            "name" => "anas",
-            "username" => "amazouni2018",
-            "password" => "AnasStormix1234"
+            "name" => $this->account->name,
+            "username" => $this->account->username,
+            "password" => $this->account->password
         ];
+        try {
+            $client = new Client(['base_uri' => $baseUrl]);
+            $response = $client->post($endPoint, array('json' => $requestBody));
+            $responseBody = $response->getBody()->getContents();
 
-        $client = new Client(['base_uri' => $baseUrl]);
-        $response = $client->post($endPoint, array('json'=> $requestBody));
-        $this->setProgressNow(50);
-        $filename = $this->user->id."/".strtolower(date('F'))."/planning.ics";
-        Storage::put("public/".$filename , $response->getBody()->getContents());
-        $this->setProgressNow(80);
-        $this->user->account()->update(['status' => 2]);
-        $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => "Calendar Name #".$max, 'url' => env('APP_URL')."/storage/".$filename]);
-        $this->setProgressNow(100);
-        $this->setOutput(['total' => $max, 'calendar' => $this->user->calendar]);
+            $this->setProgressNow(50);
+            $filename = $this->user->id . "/" . strtolower(date('F')) . "/planning.ics";
+            Storage::put("public/" . $filename, $responseBody);
+            $this->setProgressNow(80);
+            $this->user->account()->update(['status' => 2]);
+            $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => $this->user->id, 'url' => env('APP_URL') . "/storage/" . $filename]);
+            $this->setProgressNow(100);
+            $this->setOutput(['total' => $max, 'calendar' => $this->user->calendar]);
+        } catch (\Throwable $th) {
+            $this->user->account()->update(['status' => 3]);
+            throw $th;
+        }
     }
-    // /**
-    //  * The job failed to process.
-    //  *
-    //  * @param  Exception  $exception
-    //  * @return void
-    //  */
-    // public function failed(Exception $exception)
-    // {
-    //     // Send user notification of failure, etc...
-    // }
 }

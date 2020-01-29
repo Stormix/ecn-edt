@@ -30,13 +30,12 @@ class ExtractorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'username' => 'required',
             'password' => 'required',
         ]);
-
         $user = Auth::user();
-        $user->account()->updateOrCreate(['user_id' => $user->id], ['username' => $request->input('username'), 'password' => $request->input('password')]);
-
+        $user->account()->updateOrCreate(['user_id' => $user->id], ['name' => $request->input('name'), 'username' => $request->input('username'), 'password' => $request->input('password')]);
         return redirect()->route('home')
             ->with('success', 'OnBoard logins saved!');
     }
