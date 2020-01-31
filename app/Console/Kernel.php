@@ -3,9 +3,11 @@
 namespace App\Console;
 
 use App\Jobs\FetchUserPlanning;
+use App\Jobs\SynchronizeGoogleCalendar;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\User;
+use Webpatser\Uuid\Uuid;
 
 class Kernel extends ConsoleKernel
 {
@@ -28,7 +30,10 @@ class Kernel extends ConsoleKernel
     {
         foreach(User::all() as $user){
             if($user->account){
-                $schedule->job(new FetchUserPlanning($user))->daily()->withoutOverlapping();
+                $key = (String) Uuid::generate(4);
+                $schedule->job((new FetchUserPlanning($user, $key))->chain([
+                    new SynchronizeGoogleCalendar($user)
+                ]))->daily()->withoutOverlapping();
             }
         }
     }

@@ -2,8 +2,7 @@
   <div>
     <div v-if="calendar">
       <div class="alert alert-secondary" role="alert" v-if="!calendar.live_url">
-        <div class="alert-icon"><div class="kt-spinner kt-spinner--v2 kt-spinner--lg kt-spinner--dark"></div></i>
-        </div>
+        <div class="alert-icon"><div class="kt-spinner kt-spinner--v2 kt-spinner--lg kt-spinner--dark"></div></div>
         <div class="alert-text" style="margin-left:2rem;">    Synchronizing your Google calendar...</div>
         <div class="alert-close">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
