@@ -54,7 +54,7 @@ export default {
       started_at: "",
       finished_at: "",
       status: "",
-      step: 0.5
+      step: 0.3
     };
   },
   computed: {

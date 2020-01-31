@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Paris',
 
     /*
     |--------------------------------------------------------------------------
@@ -228,4 +228,5 @@ return [
 
     ],
 
+    "calendar_name" => "EDT ECN - OnBoardPlanning"
 ];

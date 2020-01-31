@@ -25,11 +25,11 @@ class FetchUserPlanning implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user, $key)
     {
         $this->account = $user->account;
         $this->user = $user;
-        $this->prepareStatus();
+        $this->prepareStatus(['key' => $key]);
     }
 
     /**
@@ -62,7 +62,7 @@ class FetchUserPlanning implements ShouldQueue
             Storage::put("public/" . $filename, $responseBody);
             $this->setProgressNow(80);
             $this->user->account()->update(['status' => 2]);
-            $calendar = $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => $this->user->id, 'url' => env('APP_URL') . "/storage/" . $filename]);
+            $calendar = $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => "Wating for Sync Job", 'url' => env('APP_URL') . "/storage/" . $filename]);
             $this->setProgressNow(100);
             $this->setOutput(['total' => $max, 'calendar' => $calendar]);
         } catch (\Throwable $th) {

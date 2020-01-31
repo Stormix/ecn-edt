@@ -36,20 +36,16 @@ return [
         // The URL that listens to Google webhook notifications (Part 3).
         'webhook_uri' => env('GOOGLE_WEBHOOK_URI'),
         // Enables automatic token refresh.
-        'approval_prompt' => 'force',
+        'approval_prompt' => 'consent select_account',
         'access_type' => 'offline',
+        'scopes' => [
+            // Getting access to the user's email.
+            \Google_Service_Oauth2::USERINFO_EMAIL,
 
+            // Managing the user's calendars and events.
+            \Google_Service_Calendar::CALENDAR,
+        ],
         // Enables incremental scopes (useful if in the future we need access to another type of data).
         'include_granted_scopes' => true,
     ],
-    // 'github' => [
-    //     'client_id' => env('GITHUB_CLIENT_ID'),
-    //     'client_secret' => env('GITHUB_CLIENT_SECRET'),
-    //     'redirect' => 'http://your-callback-url',
-    // ],
-    // 'github' => [
-    //     'client_id' => env('GITHUB_CLIENT_ID'),
-    //     'client_secret' => env('GITHUB_CLIENT_SECRET'),
-    //     'redirect' => 'http://your-callback-url',
-    // ],
 ];

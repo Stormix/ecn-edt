@@ -204,12 +204,6 @@
                  <progress-component :job_id="{{ Cookie::get('extraction_job') }}"></progress-component>
                 </div>
             </div>
-            @elseif($onboard->status == 2 && Auth::user()->calendar)
-            <div class="row">
-              <div class="col-lg-12">
-                  <calendar-info></calendar-info>
-              </div>
-            </div>
             @elseif($onboard->status == 3)
             <div class="row">
               <div class="col-lg-12"><div class="alert alert-danger" role="alert">
@@ -222,6 +216,13 @@
                   </button>
                 </div>
               </div>
+              </div>
+            </div>
+
+            @elseif(Auth::user()->calendar)
+            <div class="row">
+              <div class="col-lg-12">
+                  <calendar-info></calendar-info>
               </div>
             </div>
             @endif

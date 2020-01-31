@@ -24,6 +24,3 @@ Route::post('/store', 'ExtractorController@store');
 Route::get('/calendar', 'ExtractorController@calendar');
 Route::get('/jobs/add', 'ExtractorController@add');
 Route::get('/jobs/{id}/progress', 'ExtractorController@status');
-
-// \Imtigger\LaravelJobStatus\ProgressController::routes();
-

@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 use RedisManager;
 use App\Jobs\FetchUserPlanning;
+use App\Jobs\SynchronizeGoogleCalendar;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Imtigger\LaravelJobStatus\JobStatus;
 use Queue;
+use Webpatser\Uuid\Uuid;
+
 class ExtractorController extends Controller
 {
     use DispatchesJobs;
@@ -51,15 +54,16 @@ class ExtractorController extends Controller
         if ($user->account) {
             $user->account->status = 1;
             $user->account->save();
-
-            $job = new FetchUserPlanning($user);
-            $this->dispatch($job);
-            $jobStatusId = $job->getJobStatusId();
+            $key = (String) Uuid::generate(4);
+            FetchUserPlanning::withChain([
+                new SynchronizeGoogleCalendar($user),
+            ])->dispatch($user, $key);
+            $jobStatus = JobStatus::where('key', $key)->first();
             $queueSize = Queue::size();
             // RedisManager::publish('extract', json_encode(['username' => $user->account->username, 'password' => $user->account->password]));
             return redirect()->route('home')
                     ->cookie(
-                        'extraction_job', $job->getJobStatusId(), 24*60
+                        'extraction_job', $jobStatus->id, 24*60
                     )
                     ->with('info', 'New extraction job #'.$queueSize.' is queued! Keep this page open to get progress updates.');
         }else{

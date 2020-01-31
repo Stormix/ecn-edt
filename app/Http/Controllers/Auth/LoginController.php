@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
 use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -49,8 +50,12 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
         return Socialite::driver('google')
-                    ->scopes(['https://www.googleapis.com/auth/calendar'])
-                    ->redirect();
+            ->scopes(config('services.google.scopes'))
+            ->with([
+                "access_type" => config('services.google.access_type'),
+                "prompt" => config('services.google.approval_prompt'),
+            ])
+            ->redirect();
     }
 
     /**
@@ -65,14 +70,19 @@ class LoginController extends Controller
         } catch (\Exception $e) {
             return redirect('/login');
         }
+        $google_client_token = [
+            'access_token' => $user->token,
+            'refresh_token' => $user->refreshToken,
+            'expires_in' => $user->expiresIn
+        ];
         // check if they're an existing user
         $existingUser = Auth::user() ? Auth::user() : User::where('email', $user->email)->first();
-        if($existingUser){
+        if ($existingUser) {
             // log them in
             $existingUser->google_id       = $user->id;
             $existingUser->avatar          = $user->avatar;
             $existingUser->avatar_original = $user->avatar_original;
-            $existingUser->token = $user->token;
+            $existingUser->token = json_encode($google_client_token);
             $existingUser->save();
             auth()->login($existingUser, true);
         } else {
@@ -83,7 +93,7 @@ class LoginController extends Controller
             $newUser->google_id       = $user->id;
             $newUser->avatar          = $user->avatar;
             $newUser->avatar_original = $user->avatar_original;
-            $newUser->token = $user->token;
+            $newUser->token = json_encode($google_client_token);
             $newUser->save();
             auth()->login($newUser, true);
         }
