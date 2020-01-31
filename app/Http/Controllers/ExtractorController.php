@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Imtigger\LaravelJobStatus\JobStatus;
 use Queue;
 use Webpatser\Uuid\Uuid;
+use Illuminate\Support\Facades\Crypt;
 
 class ExtractorController extends Controller
 {
@@ -37,8 +38,9 @@ class ExtractorController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
+        $password = Crypt::encryptString($request->input('password'));
         $user = Auth::user();
-        $user->account()->updateOrCreate(['user_id' => $user->id], ['name' => $request->input('name'), 'username' => $request->input('username'), 'password' => $request->input('password')]);
+        $user->account()->updateOrCreate(['user_id' => $user->id], ['name' => $request->input('name'), 'username' => $request->input('username'), 'password' => $password]);
         return redirect()->route('home')
             ->with('success', 'OnBoard logins saved!');
     }

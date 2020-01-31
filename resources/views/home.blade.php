@@ -46,7 +46,7 @@
               <i class="flaticon-cogwheel-1"></i>
             </span>
             <h3 class="kt-portlet__head-title">
-              OnBoard Login Info <small>Stored in plaintext!</small>
+              OnBoard Login Info <small>Password are encrypted!</small>
             </h3>
           </div>
         </div>
@@ -113,7 +113,7 @@
             </div>
             <div class="form-group">
               <label for="password">OnBoard Password</label>
-              <input type="password" required autocomplete="off" class="form-control" id="password" name="password" placeholder="Password" value="{{ $onboard ? $onboard->password : ''}}">
+              <input type="password" required autocomplete="off" class="form-control" id="password" name="password" placeholder="Password" value="">
             </div>
 
             <!--end::Form-->

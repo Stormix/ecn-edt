@@ -11,6 +11,7 @@ use App\User;
 use Imtigger\LaravelJobStatus\Trackable;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 
 $baseUrl = env('API_URL');
 
@@ -50,7 +51,7 @@ class FetchUserPlanning implements ShouldQueue
         $requestBody = [
             "name" => $this->account->name,
             "username" => $this->account->username,
-            "password" => $this->account->password
+            "password" => Crypt::decryptString($this->account->password)
         ];
         try {
             $client = new Client(['base_uri' => $baseUrl]);
