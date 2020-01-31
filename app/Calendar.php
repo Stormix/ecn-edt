@@ -12,5 +12,5 @@ class Calendar extends Model
      *
      * @var string
      */
-    protected $fillable  = ['name', 'url'];
+    protected $guarded  = [];
 }

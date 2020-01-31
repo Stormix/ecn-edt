@@ -47,12 +47,14 @@ export default {
       max: 100,
       min: 0,
       current: 0,
+      current_progress: 0,
       errors: [],
       interval: null,
       created_at: "",
       started_at: "",
       finished_at: "",
-      status: ""
+      status: "",
+      step: 0.5
     };
   },
   computed: {
@@ -121,6 +123,16 @@ export default {
             this.created_at = response.data.created_at;
             this.started_at = response.data.started_at;
             this.finished_at = response.data.finished_at;
+            if(this.started_at){
+                this.current_progress += this.step;
+                this.current = Math.round(Math.atan(this.current_progress) / (Math.PI / 2) * 100 * 1000) / 1000
+                if(this.current >= 70) {
+                    this.step = 0.2
+                }
+            }
+            if(this.finished_at){
+                this.current = 100
+            }
             if (this.status == "failed") {
               this.errors = response.data.output.errors;
             }
@@ -146,7 +158,7 @@ export default {
       function() {
         this.loadData();
       }.bind(this),
-      5000
+      2500
     );
   },
 

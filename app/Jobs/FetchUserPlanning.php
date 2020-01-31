@@ -62,9 +62,9 @@ class FetchUserPlanning implements ShouldQueue
             Storage::put("public/" . $filename, $responseBody);
             $this->setProgressNow(80);
             $this->user->account()->update(['status' => 2]);
-            $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => $this->user->id, 'url' => env('APP_URL') . "/storage/" . $filename]);
+            $calendar = $this->user->calendar()->updateOrCreate(['user_id' => $this->user->id], ['name' => $this->user->id, 'url' => env('APP_URL') . "/storage/" . $filename]);
             $this->setProgressNow(100);
-            $this->setOutput(['total' => $max, 'calendar' => $this->user->calendar]);
+            $this->setOutput(['total' => $max, 'calendar' => $calendar]);
         } catch (\Throwable $th) {
             $this->user->account()->update(['status' => 3]);
             throw $th;
