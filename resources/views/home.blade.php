@@ -143,9 +143,6 @@
           </div>
           <div class="kt-portlet__head-toolbar">
             <div class="kt-portlet__head-actions">
-              <a href="#" class="btn btn-brand btn-elevate btn-sm">
-                Sync to GCal
-              </a>
               <a href="/jobs/add" class="btn btn-outline-brand btn-sm">
                 Fetch Planning
               </a>
@@ -227,45 +224,6 @@
             </div>
             @endif
 
-        </div>
-      </div>
-
-      <!--end::Portlet-->
-      <div class="kt-portlet">
-        <div class="kt-portlet__head">
-          <div class="kt-portlet__head-label">
-            <span class="kt-portlet__head-icon">
-              <i class="flaticon-calendar"></i>
-            </span>
-            <h3 class="kt-portlet__head-title kt-font-primary">
-              Import to Apple Calendar
-            </h3>
-          </div>
-          <div class="kt-portlet__head-toolbar">
-            <div class="kt-portlet__head-actions">
-              <a href="#" class="btn btn-brand btn-elevate btn-sm">
-                Coming
-              </a>
-              <a href="#" class="btn btn-outline-brand btn-sm">
-                Soon
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="kt-portlet__body">
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <a href="#" class="btn btn-label-dark"><i class="socicon-apple"></i> Authorize access to
-                Apple Calendar</a>&nbsp;
-            </div>
-          </div>
-
-          {{-- <div class="row">
-                        <div class="col-lg-12">
-                            <p>Calendar name: </p>
-                            <p>Last sync: </p>
-                        </div>
-                    </div> --}}
         </div>
       </div>
 
