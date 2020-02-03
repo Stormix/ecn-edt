@@ -162,7 +162,7 @@ class SynchronizeGoogleCalendar implements ShouldQueue
         $profs = $groups[2];
         $newEvent = new Google_Service_Calendar_Event(array(
             'summary' => trim($summary[0]) . " - " . trim($profs),
-            'location' => trim(str_replace(array("\r", "\n"), '', $event->location)),
+            'location' => str_replace(array("\r", "\n"), '', $event->location),
             'description' => trim($desc),
             'start' => array(
                 'dateTime' => \Carbon\Carbon::parse($event->dtstart_tz)->toRfc3339String()
